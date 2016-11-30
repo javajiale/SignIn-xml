@@ -39,7 +39,7 @@ public class xmlManage {
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
             //开始解析文件，将文件加载进内存，形成dom树
-            Document doc = db.parse("src/user.xml");
+            Document doc = db.parse("user.xml");
             NodeList personlist = doc.getElementsByTagName("person");  //person list
             for (int i = 0; i < personlist.getLength(); i++) {          // 取每个person的value
                 Element person = (Element) personlist.item(i);
@@ -111,7 +111,7 @@ public class xmlManage {
         //使用工厂创建文件解析类
         DocumentBuilder db = dbf.newDocumentBuilder();
         //开始解析文件，将文件加载进内存，形成dom树
-        Document doc = db.parse("src/user.xml");
+        Document doc = db.parse("user.xml");
 
         Element root = doc.getDocumentElement();
         Element per = (Element) selectSingleNode("/user/person[@id='666']",root);
@@ -119,7 +119,7 @@ public class xmlManage {
 
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer former = factory.newTransformer();
-        former.transform(new DOMSource(doc),new StreamResult(new File("src/user.xml")));
+        former.transform(new DOMSource(doc),new StreamResult(new File("user.xml")));
     }
 
     public static void delete() throws ParserConfigurationException, IOException, SAXException, TransformerException {
@@ -128,7 +128,7 @@ public class xmlManage {
         //使用工厂创建文件解析类
         DocumentBuilder db = dbf.newDocumentBuilder();
         //开始解析文件，将文件加载进内存，形成dom树
-        Document doc = db.parse("src/user.xml");
+        Document doc = db.parse("user.xml");
 
         Element root = doc.getDocumentElement();
 
@@ -137,7 +137,7 @@ public class xmlManage {
 
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer former = factory.newTransformer();
-        former.transform(new DOMSource(doc),new StreamResult(new File("src/user.xml")));
+        former.transform(new DOMSource(doc),new StreamResult(new File("user.xml")));
     }
 
     public static void createActive(String activeName,String activePerson,String time){
@@ -147,7 +147,7 @@ public class xmlManage {
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
             //开始解析文件，将文件加载进内存，形成dom树
-            Document doc = db.parse("src/active.xml");
+            Document doc = db.parse("active.xml");
             Element root = doc.getDocumentElement();
             Element active = doc.createElement("active");
             //active.setAttribute("id", "777");
@@ -171,7 +171,7 @@ public class xmlManage {
 
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer former = factory.newTransformer();
-            former.transform(new DOMSource(doc), new StreamResult(new File("src/active.xml")));
+            former.transform(new DOMSource(doc), new StreamResult(new File("active.xml")));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (TransformerConfigurationException e) {
@@ -192,7 +192,7 @@ public class xmlManage {
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
             //开始解析文件，将文件加载进内存，形成dom树
-            Document doc = db.parse("src/student.xml");
+            Document doc = db.parse("student.xml");
             Element root = doc.getDocumentElement();
             Element student = doc.createElement("student");
             student.setAttribute("id", id);
@@ -209,7 +209,7 @@ public class xmlManage {
 
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer former = factory.newTransformer();
-            former.transform(new DOMSource(doc), new StreamResult(new File("src/student.xml")));
+            former.transform(new DOMSource(doc), new StreamResult(new File("student.xml")));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (TransformerConfigurationException e) {
@@ -242,7 +242,7 @@ public class xmlManage {
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
             //开始解析文件，将文件加载进内存，形成dom树
-            Document doc = db.parse("src/signindetaill.xml");
+            Document doc = db.parse("signindetaill.xml");
             NodeList list  = doc.getElementsByTagName("entry");
             for (int i = 0; i < list.getLength(); i++) {
                 Element entry = (Element) list.item(i);
@@ -258,7 +258,7 @@ public class xmlManage {
                         entry.getElementsByTagName("time").item(0).setTextContent(newtime);
                         TransformerFactory factory = TransformerFactory.newInstance();
                         Transformer former = factory.newTransformer();
-                        former.transform(new DOMSource(doc), new StreamResult(new File("src/signindetaill.xml")));
+                        former.transform(new DOMSource(doc), new StreamResult(new File("signindetaill.xml")));
                         return "success";
                     }
 
@@ -292,7 +292,7 @@ public class xmlManage {
 
                 TransformerFactory factory = TransformerFactory.newInstance();
                 Transformer former = factory.newTransformer();
-                former.transform(new DOMSource(doc), new StreamResult(new File("src/signindetaill.xml")));
+                former.transform(new DOMSource(doc), new StreamResult(new File("signindetaill.xml")));
     //        }
 
         } catch (IOException e) {
@@ -310,14 +310,14 @@ public class xmlManage {
         return "success";
     }
 
-    public static void addShijian(String activeName, String shijian) throws ParserConfigurationException, IOException, SAXException, TransformerException {
+    public static void addShijian(String activeName, String shijian) throws ParserConfigurationException, IOException, SAXException, TransformerException{
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setIgnoringElementContentWhitespace(true);
         //使用工厂创建文件解析类
         DocumentBuilder db = dbf.newDocumentBuilder();
         //开始解析文件，将文件加载进内存，形成dom树
-        Document doc = db.parse("src/active.xml");
+        Document doc = db.parse("active.xml");
 
         NodeList list = doc.getElementsByTagName("active");
         for (int i = 0; i < list.getLength(); i++) {
@@ -336,7 +336,7 @@ public class xmlManage {
 
         TransformerFactory factory = TransformerFactory.newInstance();
         Transformer former = factory.newTransformer();
-        former.transform(new DOMSource(doc),new StreamResult(new File("src/active.xml")));
+        former.transform(new DOMSource(doc),new StreamResult(new File("active.xml")));
 
     }
 
@@ -347,7 +347,7 @@ public class xmlManage {
         DocumentBuilder db = null;
         try {
             db = dbf.newDocumentBuilder();
-            Document doc = db.parse("src/signindetaill.xml");
+            Document doc = db.parse("signindetaill.xml");
             NodeList list = doc.getElementsByTagName("entry");
             for (int i = 0; i < list.getLength(); i++) {
                 Element active = (Element) list.item(i);
@@ -384,7 +384,7 @@ public class xmlManage {
 
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer former = factory.newTransformer();
-            former.transform(new DOMSource(doc),new StreamResult(new File("src/signindetaill.xml")));
+            former.transform(new DOMSource(doc),new StreamResult(new File("signindetaill.xml")));
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();

@@ -68,29 +68,34 @@ public class FrmActive extends JDialog implements ActionListener {
         if(actionEvent.getSource() == btnCreate){
             String activeName = edtActiveName.getText();
             String activePerson= edtActivePerson.getText();
-            String time = edtTime.getText();
-            boolean flag = true;
-            NodeList list = xmlManage.selectAllNode("src/active.xml","active");
-            for (int i = 0; i < list.getLength(); i++) {
-                Element active = (Element) list.item(i);
+            if(activeName.equals("")||activePerson.equals("")){
+                JOptionPane.showMessageDialog(null, "不能为空", "error", JOptionPane.ERROR_MESSAGE);
+            }
+            else {
+                String time = edtTime.getText();
+                boolean flag = true;
+                NodeList list = xmlManage.selectAllNode("active.xml", "active");
+                for (int i = 0; i < list.getLength(); i++) {
+                    Element active = (Element) list.item(i);
 
-                for (Node node = active.getFirstChild(); node != null; node = node.getNextSibling()) {
-                    if (node.getNodeType() == Node.ELEMENT_NODE) {
-                        if(node.getNodeName()=="name")
-                            if(node.getFirstChild().getNodeValue().equals(activeName)) {
-                                JOptionPane.showMessageDialog(null, "重复", "error", JOptionPane.ERROR_MESSAGE);
-                                flag = false;
-                                break;
+                    for (Node node = active.getFirstChild(); node != null; node = node.getNextSibling()) {
+                        if (node.getNodeType() == Node.ELEMENT_NODE) {
+                            if (node.getNodeName() == "name")
+                                if (node.getFirstChild().getNodeValue().equals(activeName)) {
+                                    JOptionPane.showMessageDialog(null, "重复", "error", JOptionPane.ERROR_MESSAGE);
+                                    flag = false;
+                                    break;
 
-                            }
+                                }
+                        }
                     }
                 }
-            }
-            if(flag) {
-                xmlManage.createActive(activeName, activePerson, time);
-                FrmSign dlg = new FrmSign(this.ff, edtActiveName.getText(), true);
-                this.dispose();
-                dlg.setVisible(true);
+                if (flag) {
+                    xmlManage.createActive(activeName, activePerson, time);
+                    FrmSign dlg = new FrmSign(this.ff, edtActiveName.getText(), true);
+                    this.dispose();
+                    dlg.setVisible(true);
+                }
             }
         } else if(actionEvent.getSource() == this.btnLoad){
             FrmLoadActive dlg = new FrmLoadActive(this.ff,"活动导入",true);

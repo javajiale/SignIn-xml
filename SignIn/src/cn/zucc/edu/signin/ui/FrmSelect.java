@@ -53,7 +53,7 @@ public class FrmSelect extends JDialog implements ActionListener{
 
     Object[][] select(){
         ArrayList<Active> list = new ArrayList<Active>();
-        NodeList nlist =  xmlManage.selectAllNode("src/active.xml","active");
+        NodeList nlist =  xmlManage.selectAllNode("active.xml","active");
         for (int i = 0; i < nlist.getLength(); i++) {
             Element active = (Element) nlist.item(i);
             Active ac = new Active();

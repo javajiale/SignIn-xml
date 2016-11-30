@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<user>
+    <person id="1"><name>admin</name><pwd>123456</pwd><power>1</power></person>
+    
+<person id="777"><name>hhhaaa</name></person>
+
+</user>

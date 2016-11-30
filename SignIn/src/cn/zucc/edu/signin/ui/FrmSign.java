@@ -98,7 +98,7 @@ public class FrmSign extends JDialog implements ActionListener {
         // labelName.setText("le");
         // labelClass.setText("cs1302");
         try {
-            Node person = xmlManage.selectSingleNode("/allstudent/student[@id='" + userId + "']", xmlManage.getRoot("src/student.xml"));
+            Node person = xmlManage.selectSingleNode("/allstudent/student[@id='" + userId + "']", xmlManage.getRoot("student.xml"));
          //   labelId.setText(person.getAttributes().item());
             for(Node node = person.getFirstChild();node != null;node = node.getNextSibling()) {
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -133,6 +133,7 @@ public class FrmSign extends JDialog implements ActionListener {
                 String result = xmlManage.sign(activeName, id, name, classs, time);
                 if(result.equals("success")){
                     labelSituation.setText("签到成功！");
+                    edtUserId.setText("");
                 }else {
                     JOptionPane.showMessageDialog(null, result, "imf", JOptionPane.ERROR_MESSAGE);
                     labelId.setText("");

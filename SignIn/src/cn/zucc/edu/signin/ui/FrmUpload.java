@@ -57,7 +57,7 @@ public class FrmUpload extends JDialog implements ActionListener {
 
     Object[][] select(){
         ArrayList<Active> list = new ArrayList<Active>();
-        NodeList nlist =  xmlManage.selectAllNode("src/active.xml","active");
+        NodeList nlist =  xmlManage.selectAllNode("active.xml","active");
         for (int i = 0; i < nlist.getLength(); i++) {
             Element active = (Element) nlist.item(i);
             Active ac = new Active();
@@ -128,7 +128,7 @@ public class FrmUpload extends JDialog implements ActionListener {
 
     public void ToExcel(String path) {
 
-        NodeList list = xmlManage.selectAllNode("src/signindetaill.xml","entry");
+        NodeList list = xmlManage.selectAllNode("signindetaill.xml","entry");
 
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet sheet = wb.createSheet("签到表");

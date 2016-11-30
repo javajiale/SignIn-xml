@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SignIn:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SignIn_jar</output-path>
+    <root id="archive" name="SignIn.jar">
+      <element id="module-output" name="SignIn" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/poi-3.15-beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/poi-examples-3.15-beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/poi-excelant-3.15-beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/poi-ooxml-3.15-beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/poi-ooxml-schemas-3.15-beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/poi-scratchpad-3.15-beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/trident.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/substance .jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

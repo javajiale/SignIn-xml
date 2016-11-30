@@ -45,7 +45,7 @@ public class FrmList extends JDialog implements ActionListener {
 
     Object[][] select(){
         ArrayList<People> list = new ArrayList<People>();
-        NodeList plist = xmlManage.selectAllNode("src/signindetaill.xml","entry");
+        NodeList plist = xmlManage.selectAllNode("signindetaill.xml","entry");
         for (int i = 0; i < plist.getLength(); i++) {
             Element entry = (Element) plist.item(i);
             for(Node node = entry.getFirstChild(); node != null; node = node.getNextSibling()) {
